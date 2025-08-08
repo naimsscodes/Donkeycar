@@ -1,26 +1,39 @@
-# Donkeycar Autonomous Vehicle
+# 🏎️ DonkeyCar Autonomous RC Project
 
-This is a fully autonomous RC car built using the Donkeycar framework and Raspberry Pi 4.
-
-# Donkeycar Autonomous RC Project
-
-This is a full-stack autonomous RC car project using Donkeycar framework, Raspberry Pi 4, Python, and a trained deep learning model.
+This is a fully autonomous RC car project using the [DonkeyCar](https://docs.donkeycar.com) framework, Raspberry Pi 4, Python, and deep learning.
 
 ---
 
-## 🚀 Features
+## 🎯 Project Goals
 
-- RC car with Raspberry Pi + camera + PCA9685 servo controller
-- Manual & autonomous driving modes
-- Tub data collection (images + joystick input)
-- Model training (CNN using TensorFlow)
-- Full track testing with real-time inference
+- Build and program an autonomous RC car from scratch
+- Collect driving data (tub format)
+- Train AI model to drive the car autonomously
+- Deploy model on Raspberry Pi and test on real track
 
 ---
 
-## ⚙️ Environment Setup
+## 🛠️ Hardware Used
 
-### 📍 On PC (Training Machine)
+- Raspberry Pi 4 (4GB)
+- Pi Camera or USB Webcam
+- PCA9685 servo controller
+- RC car chassis + motor + ESC + steering servo
+- Xbox / PS4 / Generic USB controller
+
+---
+
+## 💻 Software & Tools
+
+- Python 3.8
+- DonkeyCar (v5.x)
+- TensorFlow / PyTorch (for training)
+- Visual Studio Code (for development)
+- Git & GitHub
+
+---
+
+## ⚙️ Setup Environment (PC)
 
 ```bash
 # Create virtual environment
@@ -34,39 +47,51 @@ cd donkeycar
 git checkout release_5_0
 pip install -e .[pc]
 
-# Create project
-donkey createcar --path ~/mycar
+# Create project folder
+donkey createcar --path mycar
+```
 
-# System update
-sudo apt-get update --allow-releaseinfo-change
-sudo apt-get upgrade
+---
 
-# Setup env
-python3 -m venv env --system-site-packages
-echo "source ~/env/bin/activate" >> ~/.bashrc
-source ~/.bashrc
+## 🧠 Training Model
 
-# Install Donkeycar
-git clone https://github.com/autorope/donkeycar
-cd donkeycar
-git checkout release_5_0
-pip install -e .[pi]
-
-# Create car project folder
-donkey createcar --path ~/mycar
-
-# Calibrate steering (channel 0)
-donkey calibrate --channel 0
-
-# Calibrate throttle (channel 1)
-donkey calibrate --channel 1
-
-# Start car control (manual)
-python manage.py drive
-
-# On PC (after collecting tub data)
+```bash
+# After collecting data in mycar/data/
 donkey train --tub data --model models/mypilot.tflite
+```
 
-# On Raspberry Pi
-python manage.py drive --model models/mypilot.tflite
+---
+
+## 🚗 Run The Car
+
+```bash
+python manage.py drive
+```
+
+Modes:  
+- Manual (Joystick)
+- Autonomous (using trained model)
+
+---
+
+## 📁 Folder Structure
+
+```
+mycar/
+├── config.py           # Main settings for vehicle
+├── manage.py           # Entry point for running the car
+├── custom_parts.py     # Custom logic (optional)
+├── models/             # Folder for trained models
+└── data/               # Folder for collected driving data
+```
+
+---
+
+## 📌 Notes
+
+- Do not upload `models/` and `data/` folders to GitHub (they may be large/private)
+- Keep your calibration values safe in `config.py`
+- Check out `custom_parts.py` for advanced sensor or AI additions
+
+---
 
