@@ -1,0 +1,3 @@
+# Configuration placeholder
+STEERING_LEFT_PWM = 460
+STEERING_RIGHT_PWM = 290
