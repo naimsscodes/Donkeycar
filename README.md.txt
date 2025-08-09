@@ -1,5 +1,5 @@
 """
-CAR CONFIG
+CAR CONFIG 
 
 This file is read by your car application's manage.py script to change the car
 performance.
