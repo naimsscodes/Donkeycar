@@ -310,6 +310,7 @@ Pada PC atau telefon, buka browser web dan pergi ke url bar:
 ```bash
 http://<your_pi_ip_address>:8888
 ```
+next update comming soon
 
 
 
