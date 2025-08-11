@@ -310,7 +310,33 @@ Pada PC atau telefon, buka browser web dan pergi ke url bar:
 ```bash
 http://<your_pi_ip_address>:8888
 ```
-next update comming soon
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+## 🚗 Selepas Melatih Model Anda
+
+1. **Pindahkan model yang telah dilatih ke Raspberry Pi 4**  
+   - Gunakan **FileZilla** untuk menyalin folder model daripada PC ke Raspberry Pi 4 pada lokasi:  
+     ```
+     ~/mycar/models/
+     ```
+
+2. **Jalankan model pada Raspberry Pi 4**  
+   - Buka terminal di Raspberry Pi 4 dan jalankan:  
+     ```bash
+     python manage.py drive --model ~/mycar/models/mypilot.tflite
+     ```
+
+3. **Akses Pelayan Web DonkeyCar**  
+   - Dalam pelayar web, pergi ke:  
+     ```
+     <pi_ip>:8888
+     ```
+   - Dalam antara muka web:  
+     - Tetapkan mod kepada **Full Auto**  
+     - Klik **Start Vehicle** di bahagian bawah untuk memulakan pemanduan autonomi 🚀
+
+    
+     
+
 
 
 
